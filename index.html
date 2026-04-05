@@ -990,16 +990,39 @@
 
 <script>
   // Nav scroll
-  const nav = document.getElementById('mainNav');
-  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
+  var cnmNav = document.getElementById('mainNav');
+  if (cnmNav) {
+    window.addEventListener('scroll', function() {
+      cnmNav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+  }
 
   // Suite tabs
   function showSuite(name, btn) {
-    document.querySelectorAll('.suite-content').forEach(el => el.classList.remove('active'));
-    document.querySelectorAll('.suite-tab').forEach(el => el.classList.remove('active'));
-    document.getElementById('suite-' + name).classList.add('active');
-    btn.classList.add('active');
+    document.querySelectorAll('.suite-content').forEach(function(el) { el.classList.remove('active'); });
+    document.querySelectorAll('.suite-tab').forEach(function(el) { el.classList.remove('active'); });
+    var target = document.getElementById('suite-' + name);
+    if (target) target.classList.add('active');
+    if (btn) btn.classList.add('active');
   }
 
   // Reveal on scroll
-  const observer = new IntersectionObserver(entries
+  var cnmObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        cnmObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(function(el) { cnmObserver.observe(el); });
+
+  // Form placeholder
+  function handleSubmit(e) {
+    e.preventDefault();
+    alert('Thank you for reaching out! We will get back to you soon.');
+    e.target.reset();
+  }
+</script>
+</body>
+</html>
