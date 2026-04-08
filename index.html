@@ -362,6 +362,13 @@
     color: var(--off-white); margin-bottom: 0.55rem; line-height: 1.3;
   }
   .personal-desc { font-size: 0.83rem; color: var(--grey-mid); line-height: 1.76; }
+  .personal-link {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    margin-top: 1.2rem; font-size: 0.66rem; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--grey-light); text-decoration: none; transition: color 0.2s, gap 0.2s;
+  }
+  .personal-link:hover { color: var(--orange); gap: 0.75rem; }
 
   /* COURSES */
   .courses-strip {
@@ -393,6 +400,32 @@
     display: inline-block; margin-top: 1.4rem; font-size: 0.66rem; font-weight: 700;
     letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange);
   }
+
+  /* ALLIANCE PARTNER */
+  .alliance-section {
+    background: var(--dark);
+    border-top: 1px solid var(--dark-border);
+  }
+  .alliance-card {
+    background: var(--dark-card); border: 1px solid var(--dark-border);
+    border-radius: 4px; padding: 2.8rem; max-width: 720px;
+    position: relative; overflow: hidden; transition: border-color 0.3s;
+  }
+  .alliance-card:hover { border-color: rgba(232,99,10,0.45); }
+  .alliance-card::before {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 100%; height: 3px; background: var(--orange);
+  }
+  .alliance-role {
+    font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--orange); font-weight: 700; margin-bottom: 0.45rem;
+  }
+  .alliance-name {
+    font-family: 'Playfair Display', serif; font-size: 1.55rem;
+    color: var(--off-white); margin-bottom: 1.1rem;
+  }
+  .alliance-bio { font-size: 0.87rem; color: var(--grey-mid); line-height: 1.88; }
+  .alliance-credentials { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.4rem; }
 
   /* TEAM */
   .team-section { background: var(--dark); }
@@ -581,7 +614,7 @@
     <a href="#courses">Online Courses</a>
     <a href="#team">Our Team</a>
     <a href="#reviews">Clients</a>
-    <a href="https://conversationsandmore.com/s/store" target="_blank">My Courses</a>
+    <a href="https://www.conversationsandmore.com/s/store" target="_blank">My Courses</a>
     <a href="#contact" class="nav-cta">Get in Touch</a>
   </div>
   <button class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('mobile-show')" aria-label="Menu">
@@ -597,7 +630,7 @@
       Where <span class="accent">conversations</span><br/>become transformation
     </h1>
     <p class="hero-body">
-      We help businesses build cultures of execution and individuals achieve lasting wellness through behaviourally grounded programs, coaching, and digital courses.
+      We help businesses build cultures of execution and individuals achieve lasting wellness by transforming their behavioral operating system through workshops, coaching, and digital courses.
     </p>
     <div class="hero-pillars">
       <div class="hero-pillar">
@@ -620,22 +653,17 @@
       <!-- Illustration: abstract conversation/connection motif -->
       <div class="hero-illustration">
         <svg width="200" height="160" viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Two overlapping speech-bubble shapes representing conversation -->
           <ellipse cx="72" cy="70" rx="58" ry="48" stroke="#E8630A" stroke-width="1" opacity="0.2"/>
           <ellipse cx="128" cy="85" rx="54" ry="44" stroke="#E8630A" stroke-width="1" opacity="0.15"/>
-          <!-- Connection lines -->
           <line x1="60" y1="55" x2="140" y2="95" stroke="#E8630A" stroke-width="0.5" opacity="0.12"/>
           <line x1="50" y1="80" x2="150" y2="75" stroke="#E8630A" stroke-width="0.5" opacity="0.12"/>
-          <!-- Nodes representing people/ideas -->
           <circle cx="72" cy="60" r="4" fill="#E8630A" opacity="0.35"/>
           <circle cx="128" cy="90" r="4" fill="#E8630A" opacity="0.35"/>
           <circle cx="100" cy="72" r="6" fill="#E8630A" opacity="0.2"/>
-          <!-- Small accent dots -->
           <circle cx="45" cy="50" r="2" fill="#E8630A" opacity="0.15"/>
           <circle cx="155" cy="100" r="2" fill="#E8630A" opacity="0.15"/>
           <circle cx="90" cy="40" r="1.5" fill="#E8630A" opacity="0.1"/>
           <circle cx="115" cy="115" r="1.5" fill="#E8630A" opacity="0.1"/>
-          <!-- Gentle pulse ring around the center node -->
           <circle cx="100" cy="72" r="16" stroke="#E8630A" stroke-width="0.5" opacity="0.1" style="animation: slowPulse 4s ease-in-out infinite;"/>
           <circle cx="100" cy="72" r="28" stroke="#E8630A" stroke-width="0.3" opacity="0.06" style="animation: slowPulse 4s ease-in-out 1s infinite;"/>
         </svg>
@@ -643,23 +671,23 @@
 
       <div class="hero-stats">
         <div class="hero-stat">
-          <div class="hero-stat-num">6</div>
-          <div class="hero-stat-label">Corporate Programs</div>
+          <div class="hero-stat-num">1K+</div>
+          <div class="hero-stat-label">Workshops</div>
         </div>
         <div class="hero-stat">
-          <div class="hero-stat-num">4</div>
-          <div class="hero-stat-label">Digital Courses</div>
+          <div class="hero-stat-num">25</div>
+          <div class="hero-stat-label">Enterprise Customers</div>
         </div>
         <div class="hero-stat">
-          <div class="hero-stat-num">20+</div>
-          <div class="hero-stat-label">Years Experience</div>
+          <div class="hero-stat-num">50K+</div>
+          <div class="hero-stat-label">Participants</div>
         </div>
       </div>
       <div class="hero-divider"></div>
       <div class="hero-quote-block">
         <span class="hero-quote-mark">&ldquo;</span>
-        <p class="hero-quote">Challenges are mandatory.<br/>Suffering is optional.</p>
-        <p class="hero-quote-author">Dr. Nandita Chakraborty, Co-Founder</p>
+        <p class="hero-quote">Strategy and intent are mere table stakes in Life and business.<br/>The real transformation is of Behaviour.</p>
+        <p class="hero-quote-author">Vivek Sharma, Creative Director</p>
       </div>
     </div>
   </div>
@@ -671,7 +699,7 @@
   <div class="suites-header">
     <p class="section-label reveal">Our Programs</p>
     <h2 class="section-title reveal delay-1">Two suites. <span class="accent">One vision.</span></h2>
-    <p class="section-subtitle reveal delay-2">Whether you are building a high-performance organisation or seeking personal transformation, we have a program for you.</p>
+    <p class="section-subtitle reveal delay-2">Whether you are building a high performance organization or seeking personal transformation, we create a custom tailored journey for you.</p>
   </div>
   <div class="suite-tabs">
     <button class="suite-tab active" onclick="showSuite('corporate', this)">Corporate Suite</button>
@@ -734,32 +762,38 @@
       <div class="personal-card">
         <div class="personal-icon">🌿</div>
         <div class="personal-name">Embrace Wellness Workshops</div>
-        <p class="personal-desc">Four pillars of holistic wellness: physical, emotional, relational, spiritual. Conducted by Dr. Nandita Chakraborty (MD, DNB), gold medalist doctor and marathoner.</p>
+        <p class="personal-desc">Dr Nandita Chakraborty conducts these holistic workshops. These are experiential programs where one learns to work on their body, mind and consciousness to Embrace Wellness at different realms of life.</p>
+        <a href="#contact" class="personal-link">Request Brochure &rarr;</a>
       </div>
       <div class="personal-card">
         <div class="personal-icon">🧭</div>
-        <div class="personal-name">Transformational Coaching</div>
-        <p class="personal-desc">Socratic 1-on-1 coaching for relationships, wellness, career, and personal growth. Led by an MD and an IIM alumnus with two decades of global corporate experience.</p>
+        <div class="personal-name">Elevate &ndash; Life Coaching</div>
+        <p class="personal-desc">1-on-1 coaching sessions helping you align your life with vision and goals. It&rsquo;s a nurturing and mentoring program that allows the participants to thrive and grow in their own environment.</p>
+        <a href="#contact" class="personal-link">Request Brochure &rarr;</a>
       </div>
       <div class="personal-card">
         <div class="personal-icon">💛</div>
         <div class="personal-name">Spousal EI Workshops</div>
         <p class="personal-desc">For couples seeking deeper connection and joy. Discover the art of a fulfilling relationship, regardless of age, gender, identity, or relationship tenure.</p>
+        <a href="#contact" class="personal-link">Request Brochure &rarr;</a>
       </div>
       <div class="personal-card">
         <div class="personal-icon">🎭</div>
         <div class="personal-name">RangShala Theatre</div>
         <p class="personal-desc">Find the power of expression through improv and theatre. Voice modulation, body language, pauses, gesture. Joyful and deeply effective communication priming.</p>
+        <a href="#contact" class="personal-link">Request Brochure &rarr;</a>
       </div>
       <div class="personal-card">
         <div class="personal-icon">🪑</div>
-        <div class="personal-name">Talk Therapy Baithak</div>
-        <p class="personal-desc">A non-threatening, non-judgemental circle where participants feel seen, heard, and understood, and discover new possibilities in their lives.</p>
+        <div class="personal-name">Talk Circle &ndash; Baithak</div>
+        <p class="personal-desc">A safe, non-judgmental space is created for the participants to express themselves using various forms like conversations, art, poetry and music. These workshops help participants feel heard, seen, understood and supported.</p>
+        <a href="#contact" class="personal-link">Request Brochure &rarr;</a>
       </div>
       <div class="personal-card">
         <div class="personal-icon">🌄</div>
         <div class="personal-name">Prabuddha Meditation Retreat</div>
         <p class="personal-desc">A guided meditative program to hone the inner being, reconnect with the self, and practice intentionality for creating the future you desire.</p>
+        <a href="#contact" class="personal-link">Request Brochure &rarr;</a>
       </div>
     </div>
   </div>
@@ -768,14 +802,11 @@
 <!-- VISUAL BREAK: Image banner between programs and courses -->
 <div class="image-banner reveal">
   <svg viewBox="0 0 1200 280" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-    <!-- Warm abstract background shapes -->
     <circle cx="200" cy="140" r="180" fill="#E8630A" opacity="0.04"/>
     <circle cx="900" cy="100" r="220" fill="#E8630A" opacity="0.03"/>
     <circle cx="600" cy="200" r="140" fill="#E8630A" opacity="0.05"/>
-    <!-- Flowing connection lines -->
     <path d="M0,200 Q300,80 600,150 T1200,120" stroke="#E8630A" stroke-width="0.8" fill="none" opacity="0.08"/>
     <path d="M0,140 Q400,220 800,100 T1200,180" stroke="#E8630A" stroke-width="0.5" fill="none" opacity="0.06"/>
-    <!-- Scatter dots -->
     <circle cx="150" cy="100" r="3" fill="#E8630A" opacity="0.12"/>
     <circle cx="400" cy="180" r="2" fill="#E8630A" opacity="0.10"/>
     <circle cx="700" cy="80" r="2.5" fill="#E8630A" opacity="0.10"/>
@@ -794,22 +825,22 @@
   <h2 class="section-title reveal delay-1">Learn anywhere. <span class="accent">Grow always.</span></h2>
   <p class="section-subtitle reveal delay-2">Animated, self-paced digital programs with assessments and experiential exercises, built for lasting behavioural change.</p>
   <div class="courses-grid">
-    <a href="https://conversationsandmore.com/s/store/courses/description/Ananda--an-invigorating-journey-to-reach-the-summit" class="course-card reveal" target="_blank">
+    <a href="https://www.conversationsandmore.com/s/store/courses/description/Ananda--an-invigorating-journey-to-reach-the-summit" class="course-card reveal" target="_blank">
       <div class="course-name">Ananda</div>
       <p class="course-tagline">The art of becoming a blissful achiever. A 7-week journey to seed everyday life with joy and meaning.</p>
       <span class="course-preview">Free Preview & Enrol &rarr;</span>
     </a>
-    <a href="https://conversationsandmore.com/s/store/courses/description/Prabuddha" class="course-card reveal delay-1" target="_blank">
+    <a href="https://www.conversationsandmore.com/s/store/courses/description/Prabuddha" class="course-card reveal delay-1" target="_blank">
       <div class="course-name">Prabuddha</div>
       <p class="course-tagline">An 8-week deep dive into the inner being. Shed masks, build emotional intelligence, find your true self.</p>
       <span class="course-preview">Free Preview & Enrol &rarr;</span>
     </a>
-    <a href="https://conversationsandmore.com/courses/Felicity---A-Journey-of-Spousal-Love-Laughter-and-Joy--66229b7a2c996e393ff0524c" class="course-card reveal delay-2" target="_blank">
+    <a href="https://www.conversationsandmore.com/courses/Felicity---A-Journey-of-Spousal-Love-Laughter-and-Joy--66229b7a2c996e393ff0524c" class="course-card reveal delay-2" target="_blank">
       <div class="course-name">Felicity</div>
       <p class="course-tagline">Discover the secrets to a fulfilling spousal relationship. Love, laughter, and a meaningful journey together.</p>
       <span class="course-preview">Free Preview & Enrol &rarr;</span>
     </a>
-    <a href="https://conversationsandmore.com/s/store/courses/description/Elantree" class="course-card reveal delay-3" target="_blank">
+    <a href="https://www.conversationsandmore.com/s/store/courses/description/Elantree" class="course-card reveal delay-3" target="_blank">
       <div class="course-name">Elantree</div>
       <p class="course-tagline">Communication eloquence: public speaking, listening, team communication, keynote mastery, and more.</p>
       <span class="course-preview">Free Preview & Enrol &rarr;</span>
@@ -849,6 +880,24 @@
   </div>
 </section>
 
+<!-- ALLIANCE PARTNER -->
+<section class="alliance-section" id="alliance">
+  <p class="section-label reveal">Alliance Partner</p>
+  <h2 class="section-title reveal delay-1">Extending our <span class="accent">ecosystem</span></h2>
+  <div class="orange-rule"></div>
+  <div class="alliance-card reveal delay-2" style="margin-top: 2rem;">
+    <p class="alliance-role">Founder & Principal, Third Axis Consulting</p>
+    <h3 class="alliance-name">Chittanpal Singh</h3>
+    <p class="alliance-bio">Exclusive partner of Conversations and More. Uses best-breed AI-driven Behaviour analytics to align behaviours, decision loops, and operating rhythms with stated intent. Bachelor of Engineering from Thapar Institute and MBA from IMT Ghaziabad. Prolific corporate experience in sales and strategy at Lenovo, HP, TCS, and Dell.</p>
+    <div class="alliance-credentials">
+      <span class="credential">Third Axis Consulting</span>
+      <span class="credential">Thapar Institute</span>
+      <span class="credential">IMT Ghaziabad</span>
+      <span class="credential">AI Behaviour Analytics</span>
+    </div>
+  </div>
+</section>
+
 <!-- REVIEWS -->
 <section class="clients-section" id="reviews">
   <p class="section-label reveal">Client Voices</p>
@@ -856,35 +905,59 @@
   <div class="reviews-grid">
     <div class="review-card reveal">
       <span class="review-quote-mark">&ldquo;</span>
+      <p class="review-text">We would like to extend our deepest gratitude for your time at the CFO Vantage Program. The knowledge you imparted, experiences you shared, and expertise you demonstrated are truly invaluable, serving as inspiration to our CFO participants as they prepare to take on their challenging, evolved roles.</p>
+      <p class="review-author">Nandita Pai<span class="review-company">Partner, Deloitte &amp; CFO Program Leader</span></p>
+      <span class="review-program">CFO Vantage Program</span>
+    </div>
+    <div class="review-card reveal delay-1">
+      <span class="review-quote-mark">&ldquo;</span>
+      <p class="review-text">It was a pleasure to have you with us for an engaging and power packed session &ndash; The Drive to Deliver. I am enthused to continue engaging in future.</p>
+      <p class="review-author">Gaurav Grover<span class="review-company">CEO &amp; Country Head, Olam Foods</span></p>
+      <span class="review-program">The Drive to Deliver</span>
+    </div>
+    <div class="review-card reveal delay-2">
+      <span class="review-quote-mark">&ldquo;</span>
+      <p class="review-text">The Elantree Program from Conversations and More provided valuable insights and practical strategies to enhance communication skills. The well-structured sessions, engaging activities, and real world examples made the learning experience both enjoyable and informative.</p>
+      <p class="review-author">Vinuta Chetan<span class="review-company">Head HR, Laurus Bio</span></p>
+      <span class="review-program">Elantree</span>
+    </div>
+    <div class="review-card reveal">
+      <span class="review-quote-mark">&ldquo;</span>
+      <p class="review-text">Certificate of appreciation to Vivek Sharma, Director, Conversations and More for delivering a valuable training session to the officers of CGST, SGST (MP &amp; CG) and CBN on time, stress, and productivity management.</p>
+      <p class="review-author">Dr Kavita Bhatnagar<span class="review-company">IRS, ADG NACIN Bhopal &middot; Ministry of Finance</span></p>
+      <span class="review-program">NACIN Training</span>
+    </div>
+    <div class="review-card reveal delay-1">
+      <span class="review-quote-mark">&ldquo;</span>
       <p class="review-text">Their ability to connect with and engage the audience was truly remarkable. I look forward to applying the skills and knowledge gained to my professional life.</p>
       <p class="review-author">Rajul Tomar<span class="review-company">Ph.D. Research Scientist, Laurus Bio</span></p>
       <span class="review-program">Leadership Workshop</span>
     </div>
-    <div class="review-card reveal delay-1">
+    <div class="review-card reveal delay-2">
       <span class="review-quote-mark">&ldquo;</span>
       <p class="review-text">The e-Learning, video-bytes, and movie clips in the training program are awesome learning across multiple facets of communication.</p>
       <p class="review-author">Poonam Gupta<span class="review-company">Director HR APAC, Metso</span></p>
       <span class="review-program">Elantree</span>
     </div>
-    <div class="review-card reveal delay-2">
+    <div class="review-card reveal">
       <span class="review-quote-mark">&ldquo;</span>
       <p class="review-text">The three digital programs provided a unique offering to transform communication, actions, thoughts, and consciousness. The immersive design with pre and post self-audit was truly contemporary.</p>
       <p class="review-author">Kushal Chakraborty<span class="review-company">Founder, LPCF</span></p>
       <span class="review-program">Ananda &middot; Prabuddha &middot; Elantree</span>
     </div>
-    <div class="review-card reveal">
+    <div class="review-card reveal delay-1">
       <span class="review-quote-mark">&ldquo;</span>
       <p class="review-text">The Embrace Wellness Workshop was indeed valuable and much needed. The engaging style left the team with a plethora of learnings and a desire to learn much more.</p>
       <p class="review-author">Soha Seth Moitra<span class="review-company">Regional Director, CRY</span></p>
       <span class="review-program">Embrace Wellness</span>
     </div>
-    <div class="review-card reveal delay-1">
+    <div class="review-card reveal delay-2">
       <span class="review-quote-mark">&ldquo;</span>
       <p class="review-text">The thirteen personalised sessions on EI and Power of Being were the best experience of my life. Today I feel I live more holistically than I ever did.</p>
       <p class="review-author">Manoj Arya<span class="review-company">CEO, Victoria Palace Gardens</span></p>
       <span class="review-program">1-on-1 Coaching</span>
     </div>
-    <div class="review-card reveal delay-2">
+    <div class="review-card reveal">
       <span class="review-quote-mark">&ldquo;</span>
       <p class="review-text">It made us do interesting work on ourselves to enrich our spousal journey. The learning to invite more fun and laughter in the relationship really worked.</p>
       <p class="review-author">Dr. Kavita Bhatnagar &amp; Manish Johari<span class="review-company">IRS Commissioner / Partner, VBD</span></p>
@@ -914,7 +987,6 @@
     </div>
   </div>
   <div>
-    <!-- Replace this form with Graphy's native form block when rebuilding on Graphy -->
     <form class="cta-form" onsubmit="handleSubmit(event)">
       <div class="form-row">
         <div class="form-field"><label>Your Name</label><input type="text" placeholder="Full name" required /></div>
@@ -934,10 +1006,10 @@
           </optgroup>
           <optgroup label="Personal Suite">
             <option>Embrace Wellness Workshop</option>
-            <option>Transformational Coaching (1-on-1)</option>
+            <option>Elevate - Life Coaching (1-on-1)</option>
             <option>Spousal EI Workshop</option>
             <option>RangShala Theatre</option>
-            <option>Talk Therapy Baithak</option>
+            <option>Talk Circle - Baithak</option>
             <option>Prabuddha Meditation Retreat</option>
           </optgroup>
           <optgroup label="Online Courses">
@@ -969,9 +1041,9 @@
     </div>
     <div class="footer-col">
       <h4>Personal</h4>
-      <a href="#programs">Embrace Workshops</a><a href="#programs">Coaching</a>
+      <a href="#programs">Embrace Workshops</a><a href="#programs">Elevate Coaching</a>
       <a href="#programs">Spousal EI</a><a href="#programs">RangShala</a>
-      <a href="#programs">Talk Therapy</a><a href="#programs">Meditation Retreat</a>
+      <a href="#programs">Talk Circle Baithak</a><a href="#programs">Meditation Retreat</a>
     </div>
     <div class="footer-col">
       <h4>Online Courses</h4>
