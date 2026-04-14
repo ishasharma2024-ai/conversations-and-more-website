@@ -1005,8 +1005,7 @@
     </div>
   </div>
   <div>
-    <form class="cta-form" action="https://formspree.io/f/xbdqjvev" method="POST">
-      <input type="hidden" name="_next" value="https://www.conversationsandmore.com">
+    <form class="cta-form" id="cnm-contact-form" action="https://formspree.io/f/xbdqjvev" method="POST">
       <div class="form-row">
         <div class="form-field"><label>Your Name</label><input type="text" name="name" placeholder="Full name" required /></div>
         <div class="form-field"><label>Email</label><input type="email" name="email" placeholder="your@email.com" required /></div>
@@ -1107,6 +1106,37 @@
     });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(function(el) { cnmObserver.observe(el); });
+
+  // Contact form — submit via fetch so we stay on the page
+  var cnmForm = document.getElementById('cnm-contact-form');
+  if (cnmForm) {
+    cnmForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var btn = cnmForm.querySelector('.form-submit');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      fetch(cnmForm.action, {
+        method: 'POST',
+        body: new FormData(cnmForm),
+        headers: { 'Accept': 'application/json' }
+      }).then(function(response) {
+        if (response.ok) {
+          cnmForm.innerHTML = '<div style="text-align:center;padding:3rem 1rem;">' +
+            '<p style="font-family:Playfair Display,serif;font-size:1.6rem;color:var(--off-white);margin-bottom:0.8rem;">Thank you!</p>' +
+            '<p style="color:var(--grey-mid);font-size:0.9rem;line-height:1.7;">Your message has been received. We will get back to you soon.</p>' +
+            '</div>';
+        } else {
+          btn.textContent = 'Send Message \u2192';
+          btn.disabled = false;
+          alert('Something went wrong. Please try again or email us directly at connect@conversationsandmore.com');
+        }
+      }).catch(function() {
+        btn.textContent = 'Send Message \u2192';
+        btn.disabled = false;
+        alert('Something went wrong. Please try again or email us directly at connect@conversationsandmore.com');
+      });
+    });
+  }
 </script>
 </body>
 </html>
