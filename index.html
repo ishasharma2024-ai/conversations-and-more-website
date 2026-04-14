@@ -625,7 +625,7 @@
   </a>
   <div class="nav-links">
     <a href="#programs">Corporate</a>
-    <a href="#personal">Personal</a>
+    <a href="#programs" data-suite="personal">Personal</a>
     <a href="#courses">Online Courses</a>
     <a href="#team">Our Team</a>
     <a href="#reviews">Clients</a>
@@ -660,7 +660,7 @@
     </div>
     <div class="hero-btns">
       <a href="#programs" class="btn-primary">Explore Corporate Suite</a>
-      <a href="#personal" class="btn-ghost">Personal Programs</a>
+      <a href="#programs" data-suite="personal" class="btn-ghost">Personal Programs</a>
     </div>
   </div>
   <div class="hero-right">
@@ -772,7 +772,7 @@
 
   <!-- PERSONAL -->
   <div class="suite-content" id="suite-personal">
-    <p class="suite-intro" id="personal">Personal programs, workshops, coaching, and therapy circles for individuals seeking real transformation in wellness, relationships, and inner growth.</p>
+    <p class="suite-intro">Personal programs, workshops, coaching, and therapy circles for individuals seeking real transformation in wellness, relationships, and inner growth.</p>
     <div class="personal-grid">
       <div class="personal-card">
         <div class="personal-icon">🌿</div>
@@ -1059,9 +1059,9 @@
     </div>
     <div class="footer-col">
       <h4>Personal</h4>
-      <a href="#programs">Embrace Workshops</a><a href="#programs">Elevate Coaching</a>
-      <a href="#programs">Spousal EI</a><a href="#programs">Aurora-MiM</a>
-      <a href="#programs">Talk Circle Baithak</a><a href="#programs">Meditation Retreat</a>
+      <a href="#programs" data-suite="personal">Embrace Workshops</a><a href="#programs" data-suite="personal">Elevate Coaching</a>
+      <a href="#programs" data-suite="personal">Spousal EI</a><a href="#programs" data-suite="personal">Aurora-MiM</a>
+      <a href="#programs" data-suite="personal">Talk Circle Baithak</a><a href="#programs" data-suite="personal">Meditation Retreat</a>
     </div>
     <div class="footer-col">
       <h4>Online Courses</h4>
@@ -1095,6 +1095,14 @@
     if (target) target.classList.add('active');
     if (btn) btn.classList.add('active');
   }
+
+  // Auto-switch to Personal tab when clicking links with data-suite="personal"
+  document.querySelectorAll('a[data-suite="personal"]').forEach(function(link) {
+    link.addEventListener('click', function() {
+      var tabs = document.querySelectorAll('.suite-tab');
+      tabs.forEach(function(t) { if (t.textContent.trim() === 'Personal Suite') showSuite('personal', t); });
+    });
+  });
 
   // Reveal on scroll
   var cnmObserver = new IntersectionObserver(function(entries) {
